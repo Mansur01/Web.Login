@@ -1,0 +1,31 @@
+﻿@model Web.Login.TBL_LOGIN
+
+@{
+    ViewBag.Title = "LoginUser";
+}
+
+<h2>LoginUser</h2>
+
+
+@using (Html.BeginForm("LoginUser", "Login", FormMethod.Post))
+{ 
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    <table>
+        <tr>
+            <td>@Html.LabelFor(a=>a.UserName)</td>
+            <td>@Html.TextBoxFor(a=>a.UserName)</td>
+            <td>@Html.ValidationMessageFor(a=>a.UserName)</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(a=>a.Password)</td>
+            <td>@Html.TextBoxFor(a=>a.Password)</td>
+            <td>@Html.ValidationMessageFor(a=>a.Password)</td>
+        </tr>
+
+        <tr><input type="submit" value="Login"/></tr>
+    </table>
+}
